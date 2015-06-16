@@ -1,6 +1,6 @@
 # PredictedDistribution
 Creation of a standalone package for using the PredictedDistribution class
 
-`git clone https://github.com/rappoccio/PredictedDistribution.git Analysis/PredictedDistribution`
+git clone https://github.com/rappoccio/PredictedDistribution.git Analysis/PredictedDistribution
 
-`scram b -j 10`
+scram b -j 10
