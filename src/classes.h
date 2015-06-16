@@ -1,4 +1,4 @@
-#include "Analysis/TTBSMTuplesAnalysis/interface/PredictedDistribution.h"
+#include "Analysis/PredictedDistribution/interface/PredictedDistribution.h"
 
 namespace {
   struct dictionary {

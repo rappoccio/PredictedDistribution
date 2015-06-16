@@ -3,7 +3,7 @@
 #include <cmath>
 #include "TMath.h"
 
-#include "Analysis/TTBSMTuplesAnalysis/interface/PredictedDistribution.h"
+#include "Analysis/PredictedDistribution/interface/PredictedDistribution.h"
 
 using namespace std;
 
@@ -187,10 +187,11 @@ void PredictedDistribution::DivideDists(TH1D *h1d_1, TH1D *h1d_2, bool useBinomi
 	rate.Np = val1;
 	rate.Nt = val2;
 	  
+
 	if ( (rate.Np < 0) || (rate.Nt < 0) || (rate.Nt < rate.Np) ) {
 	  std::cout << "\n INVALID INPUT FOR ERROR CALCULATION. I QUIT! " 
 	       << rate.Np << " " << rate.Nt << std::endl;
-	  std::sqrt(-1.);
+	  return;
 	}
 	  
 	val = rate.eff();
