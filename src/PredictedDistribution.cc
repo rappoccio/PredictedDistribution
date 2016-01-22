@@ -20,13 +20,13 @@ PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name,
 {
   h1_o = new TH1D(name, title, nbinsx, xlow, xup);
   h1_o->Sumw2();
-  char name2[20]; sprintf(name2,"%s_pred",name);
+  char name2[1000]; sprintf(name2,"%s_pred",name);
   h1_p = new TH1D(name2, title, nbinsx, xlow, xup);
   h1_p->Sumw2();
-  char name3[20]; sprintf(name3,"%s_tgb",name);
+  char name3[1000]; sprintf(name3,"%s_tgb",name);
   h1_tgb = new TH1D(name3, title, nbinsx, xlow, xup);
   h1_tgb->Sumw2();
-  char name4[20]; sprintf(name4, "%s_weights", name);
+  char name4[1000]; sprintf(name4, "%s_weights", name);
   h_weights = new TH2D(name4, name4, nbinsx, xlow, xup, mtx->GetNbinsX(), mtx->GetXaxis()->GetXbins()->GetArray()  );
   h_weights->Sumw2();
 }
@@ -39,13 +39,13 @@ PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name,
 {
   h1_o = new TH1D(name, title, nbinsx, xbins);
   h1_o->Sumw2();
-  char name2[20]; sprintf(name2,"%s_pred",name);
+  char name2[1000]; sprintf(name2,"%s_pred",name);
   h1_p = new TH1D(name2, title, nbinsx, xbins);
   h1_p->Sumw2();
-  char name3[20]; sprintf(name3,"%s_tgb",name);
+  char name3[1000]; sprintf(name3,"%s_tgb",name);
   h1_tgb = new TH1D(name3, title, nbinsx, xbins);
   h1_tgb->Sumw2();
-  char name4[20]; sprintf(name4, "%s_weights", name);
+  char name4[1000]; sprintf(name4, "%s_weights", name);
   h_weights = new TH2D(name4, name4, nbinsx, xbins, mtx->GetNbinsX(), mtx->GetXaxis()->GetXbins()->GetArray() );
 }
 
