@@ -3,7 +3,11 @@
 #include <cmath>
 #include "TMath.h"
 
+#ifdef STANDALONE
+#include "interface/PredictedDistribution.h"
+#else
 #include "Analysis/PredictedDistribution/interface/PredictedDistribution.h"
+#endif
 
 using namespace std;
 
@@ -12,7 +16,8 @@ using namespace std;
 /*----------------------------------------------*/
 
 //=============sets 1D histograms with fixed bins
-PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name, const char* title, Int_t nbinsx, Axis_t xlow, Axis_t xup) : 
+PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name, const char* title, Int_t nbinsx, Axis_t xlow, Axis_t xup) :
+  _name(name),
   _fNDataHisto(nbinsx + 2),
   h1_r(mtx), 
   h1_p(0), h1_o(0), h1_tgb(0),
@@ -32,7 +37,8 @@ PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name,
 }
    
 //=============sets histograms with bin array
-PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name, const char* title, Int_t nbinsx, const Double_t* xbins) : 
+PredictedDistribution::PredictedDistribution(TH1D const * mtx, const char* name, const char* title, Int_t nbinsx, const Double_t* xbins) :
+  _name(name),
   _fNDataHisto(nbinsx + 2),
   h1_r(mtx),
   h1_p(0), h1_o(0), h1_tgb(0)

@@ -12,13 +12,14 @@
 
 #include <TH2D.h>
 #include <TH1D.h>
+#include <TNamed.h>
 
 #include <iostream>
 #include <vector>
 #include <map>
 
 
-class PredictedDistribution {
+class PredictedDistribution  {
  private:		    
   //forbid shallow cloning
   PredictedDistribution( const PredictedDistribution & doNotCopy);
@@ -27,7 +28,7 @@ class PredictedDistribution {
  public:      
   /*** CONSTRUCTORS                                 ******/
   //default, everything empty, must allocate new dists, not implemented yet
-  PredictedDistribution() : _fNDataHisto(0),h_weights(0), h1_r(0), h1_p(0), h1_o(0), h1_tgb(0)
+  PredictedDistribution() : _name(""),_fNDataHisto(0),h_weights(0), h1_r(0), h1_p(0), h1_o(0), h1_tgb(0)
   { std::cout << "Do not use me." << std::endl; };
   
   //sets d with fixed bins or vary bins
@@ -56,9 +57,12 @@ class PredictedDistribution {
   void DivideObserved(TH1D *h); // Uses binomial errs
   void DividePredicted(TH1D *h); // Uses propagation of homecooked errs
   static void DivideDists( TH1D * h1, TH1D * h2, bool useBinomial );
+
+  std::string GetName() const { return _name;}
+  void Write() { h1_p->Write(); h1_o->Write(); h1_tgb->Write(); }
   
  protected:
-
+  std::string _name;
   const  Int_t _fNDataHisto; 	                   //number of bins in distribution with overflo & underflo
 
   

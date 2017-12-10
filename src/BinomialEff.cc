@@ -1,4 +1,8 @@
+#ifdef STANDALONE
+#include "interface/BinomialEff.h"
+#else
 #include "Analysis/PredictedDistribution/interface/BinomialEff.h"
+#endif
 
 #include <cmath>
 
